@@ -14,7 +14,8 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 .wrap{max-width:1000px;margin:0 auto;padding:16px}
-h1{font-size:22px;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+h1{font-size:22px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+.stt{font-size:12px;color:var(--mut);margin-bottom:12px;min-height:16px}.stt.err{color:var(--bad)}
 .logo{width:34px;height:34px;object-fit:contain}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
@@ -48,6 +49,7 @@ td.v{text-align:right;white-space:nowrap}.ent{color:var(--ok)}.sai{color:var(--b
 <body>
 <div class="wrap">
   <h1><img class="logo" alt="" src="data:image/png;base64,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"> Controle de Estoque</h1>
+  <div class="stt" id="st"></div>
   <div class="cards" id="cards"></div>
   <div class="bar">
     <input type="search" id="q" placeholder="Buscar modelo ou placa…">
@@ -62,6 +64,7 @@ td.v{text-align:right;white-space:nowrap}.ent{color:var(--ok)}.sai{color:var(--b
       <option value="vnovo">Venda mais recente</option>
     </select>
     <button class="pri" onclick="abrirCarro()">+ Novo carro</button>
+    <button onclick="cfgSync()">☁ Sincronizar</button>
     <button onclick="backup()">Backup</button>
   </div>
   <div id="list"></div>
@@ -69,9 +72,19 @@ td.v{text-align:right;white-space:nowrap}.ent{color:var(--ok)}.sai{color:var(--b
 <div class="ov" id="ov" onclick="if(event.target===this)fechar()"><div class="md" id="md"></div></div>
 
 <script>
-var cars=[];
+var cars=[],del={},snap={},cfg=null,tmr=null,busy=false,again=false;
 try{cars=JSON.parse(localStorage.getItem('carros_v1')||'[]')}catch(e){cars=[]}
-function save(){try{localStorage.setItem('carros_v1',JSON.stringify(cars))}catch(e){}}
+try{del=JSON.parse(localStorage.getItem('carros_del')||'{}')}catch(e){del={}}
+try{cfg=JSON.parse(localStorage.getItem('carros_gh')||'null')}catch(e){cfg=null}
+function strip(c){var o={};for(var k in c)if(k!=='upd')o[k]=c[k];return JSON.stringify(o)}
+cars.forEach(function(c){snap[c.id]=strip(c);if(!c.upd)c.upd=0});
+function mark(){
+  var now=Date.now(),seen={};
+  cars.forEach(function(c){seen[c.id]=1;var t=strip(c);if(snap[c.id]!==t){c.upd=now;snap[c.id]=t}});
+  Object.keys(snap).forEach(function(id){if(!seen[id]){del[id]=now;delete snap[id]}});
+}
+function persist(){try{localStorage.setItem('carros_v1',JSON.stringify(cars));localStorage.setItem('carros_del',JSON.stringify(del))}catch(e){}}
+function save(){mark();persist();agendar()}
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function brl(n){return (n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
@@ -207,10 +220,120 @@ function restaurar(){
   try{var d=JSON.parse($('bk').value);if(!Array.isArray(d))throw 0;if(confirm('Substituir todos os dados atuais pelo backup?')){cars=d;save();fechar()}}
   catch(e){alert('Backup inválido')}
 }
+
+/* ===== Sincronização com GitHub ===== */
+function stat(m,err){var e=$('st');e.textContent=m;e.className='stt'+(err?' err':'')}
+function hora(){var d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function b64e(x){return btoa(unescape(encodeURIComponent(x)))}
+function b64d(x){return decodeURIComponent(escape(atob(x.replace(/\s/g,''))))}
+function norm(o){
+  var d={};Object.keys(o.del||{}).sort().forEach(function(k){d[k]=o.del[k]});
+  var cs=(o.cars||[]).slice().sort(function(a,b){return a.id<b.id?-1:a.id>b.id?1:0});
+  return JSON.stringify({cars:cs,del:d},null,1);
+}
+function merge(r){
+  r=r||{};var rc=r.cars||[],rd=r.del||{},d={},m={},k;
+  for(k in rd)d[k]=rd[k];
+  for(k in del)d[k]=Math.max(d[k]||0,del[k]);
+  rc.forEach(function(c){m[c.id]=c});
+  cars.forEach(function(c){var o=m[c.id];if(!o||(c.upd||0)>=(o.upd||0))m[c.id]=c});
+  var out=[];
+  for(var id in m){if(d[id]&&d[id]>=(m[id].upd||0))continue;out.push(m[id])}
+  return{cars:out,del:d};
+}
+function api(method,body,q){
+  return fetch('https://api.github.com/repos/'+cfg.repo+'/contents/dados.json'+(q||''),{
+    method:method,cache:'no-store',
+    headers:{'Authorization':'Bearer '+cfg.token,'Accept':'application/vnd.github+json'},
+    body:body?JSON.stringify(body):undefined});
+}
+function agendar(){
+  if(!cfg)return;
+  stat('☁ Alterações pendentes…');
+  clearTimeout(tmr);tmr=setTimeout(function(){sync(0)},1500);
+}
+async function sync(n){
+  if(!cfg)return;
+  if(busy){again=true;return}
+  busy=true;stat('☁ Sincronizando…');
+  try{
+    var r=await api('GET',null,'?t='+Date.now()),sha=null,remote={};
+    if(r.status===200){var j=await r.json();sha=j.sha;remote=JSON.parse(b64d(j.content||''))}
+    else if(r.status!==404){throw new Error(r.status===401?'token inválido ou vencido':r.status===403?'token sem permissão':'erro '+r.status)}
+    var m=merge(remote);
+    cars=m.cars;del=m.del;snap={};
+    cars.forEach(function(c){snap[c.id]=strip(c)});
+    persist();render();
+    if(norm(m)!==norm(remote)){
+      var body={message:'Atualização '+new Date().toISOString(),content:b64e(norm(m))};
+      if(sha)body.sha=sha;
+      var pr=await api('PUT',body);
+      if(pr.status===409||pr.status===422){
+        busy=false;
+        if((n||0)<2)return sync((n||0)+1);
+        throw new Error('conflito, tente de novo');
+      }
+      if(!pr.ok)throw new Error(pr.status===403?'token sem permissão de escrita':'erro ao salvar ('+pr.status+')');
+    }
+    stat('☁ Sincronizado às '+hora());
+  }catch(e){
+    stat('⚠ Sem sincronizar: '+(e instanceof TypeError?'sem internet':e.message)+' (seus dados continuam salvos neste aparelho)',true);
+  }
+  busy=false;
+  if(again){again=false;sync(0)}
+}
+function iniciarSync(){
+  if(!cfg){stat('Sincronização desligada. Toque em “☁ Sincronizar” para ligar.');return}
+  sync(0);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)sync(0)});
+  setInterval(function(){if(!document.hidden)sync(0)},90000);
+}
+function cfgSync(){
+  abrir('<h2>☁ Sincronizar com GitHub</h2>'+
+   '<p style="color:var(--mut);margin:4px 0 8px">Seus carros e lançamentos são salvos num repositório <b>privado</b> do GitHub e aparecem em todos os aparelhos em que você ligar isto.</p>'+
+   '<details style="margin-bottom:10px"><summary style="cursor:pointer;color:var(--pri)">Como criar o repositório e o token (1ª vez)</summary>'+
+   '<ol style="color:var(--mut);padding-left:20px;line-height:1.5">'+
+   '<li>No GitHub, crie um repositório novo, por exemplo <b>controle-estoque-dados</b>, marcando <b>Private</b> e <b>Add a README file</b>.</li>'+
+   '<li>Clique na sua foto, depois <b>Settings</b> › <b>Developer settings</b> › <b>Personal access tokens</b> › <b>Fine-grained tokens</b> › <b>Generate new token</b>.</li>'+
+   '<li>Em <b>Repository access</b> escolha <b>Only select repositories</b> e marque só o repositório de dados.</li>'+
+   '<li>Em <b>Permissions › Repository permissions</b>, coloque <b>Contents</b> como <b>Read and write</b>.</li>'+
+   '<li>Gere o token, copie e cole abaixo. Ele aparece uma única vez.</li></ol></details>'+
+   '<div class="f"><div style="grid-column:1/-1"><label>Repositório de dados (usuario/nome)</label><input id="gr" value="'+esc(cfg?cfg.repo:'')+'" placeholder="seu-usuario/controle-estoque-dados"></div>'+
+   '<div style="grid-column:1/-1"><label>Token de acesso</label><input id="gt" type="password" autocomplete="off" value="'+esc(cfg?cfg.token:'')+'" placeholder="github_pat_…"></div></div>'+
+   '<p style="color:var(--mut);font-size:12px;margin:0 0 10px">O token fica guardado só neste aparelho. Não compartilhe com ninguém.</p>'+
+   '<div class="acts" style="justify-content:space-between">'+(cfg?'<button class="del" onclick="desligarSync()">Desligar</button>':'<span></span>')+
+   '<span><button onclick="fechar()">Cancelar</button> <button class="pri" id="gb" onclick="salvarSync()">Salvar e sincronizar</button></span></div>');
+}
+async function salvarSync(){
+  var repo=$('gr').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\.git$/,'').replace(/\/$/,''),tk=$('gt').value.trim();
+  if(!/^[\w.-]+\/[\w.-]+$/.test(repo)||!tk){alert('Preencha o repositório (usuario/nome) e o token.');return}
+  var b=$('gb');b.disabled=true;b.textContent='Testando…';
+  try{
+    var r=await fetch('https://api.github.com/repos/'+repo,{headers:{'Authorization':'Bearer '+tk,'Accept':'application/vnd.github+json'},cache:'no-store'});
+    if(r.status===401){alert('Token inválido ou vencido.')}
+    else if(r.status===404){alert('Repositório não encontrado, ou o token não tem acesso a ele. Confira o nome e as permissões.')}
+    else if(!r.ok){alert('Não consegui conectar (erro '+r.status+').')}
+    else{
+      var j=await r.json();
+      if(j.permissions&&j.permissions.push===false){alert('Esse token não tem permissão de escrita (Contents: Read and write).');b.disabled=false;b.textContent='Salvar e sincronizar';return}
+      cfg={repo:repo,token:tk};
+      try{localStorage.setItem('carros_gh',JSON.stringify(cfg))}catch(e){}
+      fechar();iniciarSync();return;
+    }
+  }catch(e){alert('Sem internet ou conexão bloqueada.')}
+  b.disabled=false;b.textContent='Salvar e sincronizar';
+}
+function desligarSync(){
+  if(!confirm('Desligar a sincronização neste aparelho? Seus dados continuam salvos aqui e no GitHub.'))return;
+  cfg=null;try{localStorage.removeItem('carros_gh')}catch(e){}
+  fechar();stat('Sincronização desligada. Toque em “☁ Sincronizar” para ligar.');
+}
+
 try{var sv=localStorage.getItem('carros_sort');if(sv)$('so').value=sv}catch(e){}
 $('so').addEventListener('change',function(){try{localStorage.setItem('carros_sort',$('so').value)}catch(e){}render()});
 $('q').addEventListener('input',render);$('fl').addEventListener('change',render);
 render();
+iniciarSync();
 </script>
 </body>
 </html>
